@@ -13,7 +13,6 @@ RUN apk add --no-cache \
 
 # Copy package files
 COPY package*.json ./
-COPY yarn.lock ./
 
 # Install dependencies
 RUN npm ci
