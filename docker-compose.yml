@@ -1,0 +1,32 @@
+services:
+  # DevSeniorCode Meet - Frontend Web
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: devseniorcode-meet-web
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - NGINX_HOST=devseniorcode.com
+      - NGINX_PORT=80
+    restart: unless-stopped
+    networks:
+      - jitsi-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.devseniorcode.rule=Host(`devseniorcode.com`)"
+      - "traefik.http.routers.devseniorcode.tls=true"
+      - "traefik.http.routers.devseniorcode.tls.certresolver=letsencrypt"
+      - "com.dokploy.app-name=devseniorcode-meet"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  jitsi-network:
+    driver: bridge

@@ -1,36 +1,28 @@
 {
-  "android_package_name": "org.jitsi.meet",
-  "prefer_related_applications": true,
-  "related_applications": [
-    {
-      "id": "org.jitsi.meet",
-      "platform": "chromeos_play"
-    }
-  ],
-  "short_name": "Jitsi Meet",
-  "name": "Jitsi Meet",
+  "short_name": "DevSeniorCode",
+  "name": "DevSeniorCode",
+  "description": "Reuniones seguras para equipos y clientes. Videoconferencias de alta calidad sin descargas.",
   "icons": [
     {
-      "src": "static/pwa/icons/icon192.png",
+      "src": "images/devsenior-logo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "static/pwa/icons/icon512.png",
+      "src": "images/devsenior-logo.png",
       "type": "image/png",
       "sizes": "512x512"
     },
     {
-      "src": "static/pwa/icons/iconMask.png",
+      "src": "images/devsenior-logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
   "start_url": "/",
-  "background_color": "#17A0DB",
+  "background_color": "#0a0a0f",
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#17A0DB"
- }
- 
+  "theme_color": "#8b5cf6"
+}

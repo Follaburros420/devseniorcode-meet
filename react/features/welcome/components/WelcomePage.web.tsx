@@ -277,6 +277,28 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                                         t, 'welcomepage.moderatedMessage', { url: _moderatedRoomServiceUrl })
                                 }
                             </div>)}
+
+                        {/* DevSeniorCode Value Props */}
+                        <div className = 'devsenior-value-props'>
+                            <div className = 'value-prop-item'>
+                                <Icon
+                                    className = 'value-prop-icon'
+                                    src = 'https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/video.svg' />
+                                <span>HD audio/video</span>
+                            </div>
+                            <div className = 'value-prop-item'>
+                                <Icon
+                                    className = 'value-prop-icon'
+                                    src = 'https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/screen-share.svg' />
+                                <span>Compartir pantalla</span>
+                            </div>
+                            <div className = 'value-prop-item'>
+                                <Icon
+                                    className = 'value-prop-icon'
+                                    src = 'https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/user-x.svg' />
+                                <span>Sin registro</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

@@ -118,3 +118,18 @@ react-native-sdk/sounds
 tests/.env
 test-results
 
+# DevSeniorCode Custom
+.claude/
+.playwright-mcp/
+jitsi_loaded.png
+screenshot.png
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Dev files
+index_dev.html
+DEVSENIOR_README.md
+QUICKSTART.md
+
