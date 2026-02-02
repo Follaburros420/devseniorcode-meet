@@ -1,87 +1,265 @@
-# <p align="center">Jitsi Meet</p>
+# DevSeniorCode Meet
 
-Jitsi Meet is a set of Open Source projects which empower users to use and deploy
-video conferencing platforms with state-of-the-art video quality and features.
+<div align="center">
 
-<hr />
+![DevSeniorCode Meet](images/devsenior-logo.svg)
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/jitsi/jitsi-meet/master/readme-img1.png" width="900" />
-</p>
+**Videoconferencias premium con diseño SaaS moderno**
 
-<hr />
+Una versión personalizada de Jitsi Meet con branding completo de DevSeniorCode, diseño glassmorphism oscuro, y optimizada para despliegues Docker/Dokploy.
 
-Amongst others here are the main features Jitsi Meet offers:
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![Docker](https://img.shields.io/badge/docker-ready-brightgreen.svg)](https://www.docker.com/)
 
-* Support for all current browsers
-* Mobile applications
-* Web and native SDKs for integration
-* HD audio and video
-* Content sharing
-* Raise hand and reactions
-* Chat with private conversations
-* Polls
-* Virtual backgrounds
+</div>
 
-And many more!
+---
 
-## Using Jitsi Meet
+## 🎨 Características
 
-Using Jitsi Meet is straightforward, as it's browser based. Head over to [meet.jit.si](https://meet.jit.si) and give it a try. It's scalable and free to use. All you need is a Google, Facebook or GitHub account in order to start a meeting. All browsers are supported!
+### Branding Completo
+- ✅ **Título**: "DevSeniorCode" en pestaña del navegador
+- ✅ **Meta tags**: OpenGraph, Twitter Cards, PWA manifest
+- ✅ **Logos personalizados**: Watermark y welcome page
+- ✅ **Sin referencias a Jitsi Meet** en la UI visible
 
-Using mobile? No problem, you can either use your mobile web browser or our fully-featured
-mobile apps:
+### Diseño Premium SaaS
+- 🎨 **Tema oscuro morado** (#8b5cf6)
+- ✨ **Glassmorphism**: Blur, transparencias, bordes brillantes
+- 📱 **Responsive**: Optimizado para desktop y móvil
+- ⚡ **Microinteracciones**: Animaciones suaves (150-250ms)
+- 🎯 **Accesibilidad**: Contraste WCAG AA compliant
 
-| Android | Android (F-Droid) | iOS |
-|:-:|:-:|:-:|
-| [<img src="resources/img/google-play-badge.png" height="50">](https://play.google.com/store/apps/details?id=org.jitsi.meet) | [<img src="resources/img/f-droid-badge.png" height="50">](https://f-droid.org/packages/org.jitsi.meet/) | [<img src="resources/img/appstore-badge.png" height="50">](https://itunes.apple.com/us/app/jitsi-meet/id1165103905) |
+### Welcome Page Moderna
+- 🏠 **Hero impactante**: Título con gradiente y subtítulo
+- 💎 **Bullets de valor**: HD audio/video, Compartir pantalla, Sin registro
+- 📝 **Input premium**: Placeholder elegante con microtexto
+- 🔄 **Recientes profesional**: Tarjetas translucidas con estado vacío
+- 🌐 **100% español**: Localización completa
 
-If you are feeling adventurous and want to get an early scoop of the features as they are being
-developed you can also sign up for our open beta testing here:
+---
 
-* [Android](https://play.google.com/apps/testing/org.jitsi.meet)
-* [iOS](https://testflight.apple.com/join/isy6ja7S)
+## 🚀 Quick Start (Docker)
 
-## Running your own instance
+### Requisitos
+- Docker 20.10+
+- Docker Compose 2.0+
 
-If you'd like to run your own Jitsi Meet installation head over to the [handbook](https://jitsi.github.io/handbook/docs/devops-guide/) to get started.
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/Follaburros420/devseniorcode-meet.git
+cd devseniorcode-meet
+```
 
-We provide Debian packages and a comprehensive Docker setup to make deployments as simple as possible.
-Advanced users also have the possibility of building all the components from source.
+### 2. Construir y ejecutar con Docker Compose
+```bash
+# Construir imagen
+docker-compose build
 
-You can check the latest releases [here](https://jitsi.github.io/handbook/docs/releases).
+# Iniciar contenedor
+docker-compose up -d
 
-## Jitsi as a Service
+# Ver logs
+docker-compose logs -f web
+```
 
-If you like the branding capabilities of running your own instance but you'd like
-to avoid dealing with the complexity of monitoring, scaling and updates, JaaS might be
-for you.
+### 3. Acceder a la aplicación
+```
+http://localhost:8080
+```
 
-[8x8 Jitsi as a Service (JaaS)](https://jaas.8x8.vc) is an enterprise-ready video meeting platform that allows developers, organizations and businesses to easily build and deploy video solutions. With Jitsi as a Service we now give you all the power of Jitsi running on our global platform so you can focus on building secure and branded video experiences.
+---
 
-## Documentation
+## 🐳 Despliegue con Dokploy
 
-All the Jitsi Meet documentation is available in [the handbook](https://jitsi.github.io/handbook/).
+### Configuración recomendada
 
-## Security
+1. **Crear nueva aplicación** en Dokploy:
+   - Tipo: **Docker Compose**
+   - Repository: `https://github.com/Follaburros420/devseniorcode-meet.git`
+   - Branch: `master`
+   - Ruta docker-compose: `/`
 
-For a comprehensive description of all Jitsi Meet's security aspects, please check [this link](https://jitsi.org/security).
+2. **Variables de entorno** (opcional):
+   ```yaml
+   NGINX_HOST=devseniorcode.com
+   NGINX_PORT=80
+   ```
 
-For a detailed description of Jitsi Meet's End-to-End Encryption (E2EE) implementation,
-please check [this link](https://jitsi.org/e2ee-whitepaper/).
+3. **Puertos expuestos**:
+   - `80` (HTTP)
+   - `443` (HTTPS)
 
-For information on reporting security vulnerabilities in Jitsi Meet, see [SECURITY.md](./SECURITY.md).
+4. **Labels Traefik** (automáticos):
+   - `traefik.enable=true`
+   - `com.dokploy.app-name=devseniorcode-meet`
 
-## Contributing
+---
 
-If you are looking to contribute to Jitsi Meet, first of all, thank you! Please
-see our [guidelines for contributing](CONTRIBUTING.md).
+## 📁 Estructura de Archivos Principales
 
-<br />
-<br />
+```
+devseniorcode-meet/
+├── css/
+│   ├── devsenior_custom.scss    # Tema premium glassmorphism
+│   └── main.scss                 # Importa tema personalizado
+├── images/
+│   ├── devsenior-logo.svg        # Logo principal
+│   └── watermark.svg             # Watermark con gradiente
+├── lang/
+│   ├── main-es.json              # Traducciones españolas
+│   └── main.json                 # Traducciones inglesas
+├── react/features/welcome/
+│   └── components/
+│       └── WelcomePage.web.tsx  # Welcome page con bullets
+├── Dockerfile                     # Multi-stage build
+├── docker-compose.yml             # Configuración Dokploy
+├── nginx-devsenior.conf          # Configuración nginx
+├── interface_config.js           # Configuración UI
+├── title.html                     # Metadatos completos
+├── manifest.json                 # PWA manifest
+└── README.md                      # Este archivo
+```
 
-<footer>
-<p align="center" style="font-size: smaller;">
-Built with ❤️ by the Jitsi team at <a href="https://8x8.com" target="_blank">8x8</a> and our community.
-</p>
-</footer>
+---
+
+## 🎨 Personalización
+
+### Colores del Tema
+
+Edita `css/devsenior_custom.scss`:
+
+```scss
+// Paleta de colores principal
+$color-purple-primary: #8b5cf6;
+$color-purple-secondary: #a78bfa;
+$color-purple-accent: #c4b5fd;
+$color-bg-primary: #0a0a0f;
+$color-bg-secondary: #12121a;
+```
+
+### Textos
+
+Edita los archivos de idioma:
+- Español: `lang/main-es.json`
+- Inglés: `lang/main.json`
+
+### Configuración
+
+Edita `interface_config.js` para ajustar:
+- `APP_NAME`: Nombre de la aplicación
+- `DEFAULT_WELCOME_PAGE_LOGO_URL`: URL del logo
+- `BRAND_WATERMARK_LINK`: Enlace del watermark
+
+---
+
+## 🔧 Desarrollo Local
+
+### Instalación de dependencias
+```bash
+npm install
+```
+
+### Servidor de desarrollo
+```bash
+npm run dev
+```
+
+Abrir: http://localhost:8080/index_dev.html
+
+### Compilación para producción
+```bash
+# Compilar CSS
+npx sass css/main.scss css/all.bundle.css
+./node_modules/.bin/cleancss --skip-rebase css/all.bundle.css -o css/all.css
+
+# Compilar React
+npm run build
+```
+
+### Linter
+```bash
+npm run lint:ci
+npm run tsc:web
+```
+
+---
+
+## 📦 Optimizaciones
+
+### Imagen Docker Multi-Stage
+- **Stage 1 (Builder)**: Node.js 20 Alpine para compilar
+- **Stage 2 (Production)**: Nginx Alpine para servir
+- **Tamaño optimizado**: Solo incluye archivos necesarios
+
+### Nginx Configurado
+- ✅ Gzip compression
+- ✅ Cache de assets estáticos (1 año)
+- ✅ Security headers
+- ✅ Health checks
+
+---
+
+## 🧪 Testing
+
+Ejecutar tests:
+```bash
+npm test
+```
+
+Tests visuales manuales:
+1. Abrir http://localhost:8080 en modo incógnito
+2. Verificar título de pestaña: "DevSeniorCode"
+3. Inspeccionar meta tags en DevTools
+4. Verificar diseño responsive
+
+---
+
+## 📝 Changelog
+
+### v1.0.0 (2025-02-02)
+- ✅ Rebranding completo a DevSeniorCode
+- ✅ Diseño SaaS premium con glassmorphism
+- ✅ Welcome page con bullets de valor
+- ✅ Dockerfile optimizado para Dokploy
+- ✅ Actualización de todos los metadatos
+- ✅ Traducciones en español e inglés
+- ✅ Eliminación de footer de apps móviles
+
+---
+
+## 🤝 Contribuir
+
+Este es un fork personalizado de [jitsi/jitsi-meet](https://github.com/jitsi/jitsi-meet).
+
+1. Fork el repositorio
+2. Crea rama: `git checkout -b feature/mi-feature`
+3. Commit: `git commit -m 'feat: Agregar mi feature'`
+4. Push: `git push origin feature/mi-feature`
+5. Pull Request
+
+---
+
+## 📄 Licencia
+
+Apache-2.0 - Ver archivo [LICENSE](LICENSE) para detalles.
+
+Basado en [Jitsi Meet](https://jitsi.org/jitsi-meet/) © 8x8, Inc.
+
+---
+
+## 🔗 Links Útiles
+
+- **Repositorio**: [https://github.com/Follaburros420/devseniorcode-meet](https://github.com/Follaburros420/devseniorcode-meet)
+- **Issues**: [https://github.com/Follaburros420/devseniorcode-meet/issues](https://github.com/Follaburros420/devseniorcode-meet/issues)
+- **Jitsi Meet Original**: [https://github.com/jitsi/jitsi-meet](https://github.com/jitsi/jitsi-meet)
+
+---
+
+<div align="center">
+
+**Hecho con ❤️ por [DevSeniorCode](https://devseniorcode.com)**
+
+_Fork personalizado de [Jitsi Meet](https://jitsi.org/jitsi-meet/) con diseño premium SaaS_
+
+</div>
