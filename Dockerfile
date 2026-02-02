@@ -20,8 +20,8 @@ RUN npm install --legacy-peer-deps
 # Copy source code
 COPY . .
 
-# Build application
-RUN npm run build
+# Build application (Jitsi uses Makefile)
+RUN make compile
 
 # Stage 2: Production
 FROM nginx:alpine
