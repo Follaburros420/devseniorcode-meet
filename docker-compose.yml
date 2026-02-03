@@ -15,12 +15,6 @@ services:
             - PUBLIC_URL
             - XMPP_BOSH_URL_BASE
             - XMPP_DOMAIN
-        healthcheck:
-            test: [ "CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/" ]
-            interval: 30s
-            timeout: 10s
-            retries: 3
-            start_period: 40s
         networks:
             meet.jitsi:
                 aliases:
@@ -34,11 +28,6 @@ services:
         volumes:
             - ${CONFIG}/prosody/config:/config
             - ${CONFIG}/prosody/prosody-plugins-custom:/prosody-plugins-custom
-        healthcheck:
-            test: [ "CMD-SHELL", "prosodyctl about || exit 1" ]
-            interval: 30s
-            timeout: 10s
-            retries: 3
         networks:
             meet.jitsi:
                 aliases:
@@ -74,7 +63,3 @@ services:
 
 networks:
     meet.jitsi:
-        driver: bridge
-        ipam:
-            config:
-                - subnet: 172.25.0.0/16

@@ -19,7 +19,7 @@ COPY manifest.json /usr/share/nginx/html/
 COPY interface_config.js /usr/share/nginx/html/
 COPY config.js /usr/share/nginx/html/
 
-# Copy compiled assets (must be built locally first with: make compile \&\& make deploy)
+# Copy compiled assets (must be built locally first with: make compile && make deploy)
 COPY libs/ /usr/share/nginx/html/libs/
 COPY css/ /usr/share/nginx/html/css/
 COPY images/ /usr/share/nginx/html/images/
