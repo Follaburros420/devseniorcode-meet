@@ -181,6 +181,21 @@ devseniorcode-meet/
 
 ---
 
+## ⚠️ WebRTC y HTTPS (Solución de Problemas)
+
+### Problema: "WebRTC not available"
+
+Si ves este error al desplegar en Docploit/Traefik:
+- **Causa**: WebRTC requiere HTTPS (secure context).
+- **Solución**: La configuración de Nginx incluida (`nginx-devsenior.conf`) ahora detecta automáticamente el HTTPS que provee Traefik.
+
+### Cómo funciona la arquitectura:
+1. **Traefik (Docploit)**: Recibe la conexión segura (HTTPS) en puerto 443.
+2. **Nginx (Interno)**: Recibe la conexión en puerto 80, pero lee el header `X-Forwarded-Proto: https`.
+3. **Navegador**: Detecta el contexto seguro y habilita WebRTC.
+
+---
+
 ## 🎨 Personalización
 
 ### Colores del Tema
