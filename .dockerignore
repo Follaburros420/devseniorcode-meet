@@ -1,0 +1,74 @@
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Build artifacts that will be created locally
+build/
+*.bundle.js
+*.bundle.min.js
+
+# Source files (not needed in production - only compiled assets)
+react/
+modules/
+*.js
+*.ts
+*.tsx
+*.scss
+!css/all.css
+!css/all.bundle.css
+
+# Git
+.git/
+.gitignore
+.github/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+*.md
+!README.md
+LICENSE
+CONTRIBUTING.md
+
+# Test files
+tests/
+test/
+*.test.js
+*.spec.js
+coverage/
+
+# CI/CD
+.jenkins/
+
+# Mobile apps (not needed for web deployment)
+android/
+ios/
+react-native-sdk/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Logs
+logs/
+*.log
+
+# Dev files
+index_dev.html
+DEVSENIOR_README.md
+QUICKSTART.md
+CLAUDE.md
+README.jitsi.md
+Dockerfile.dev
