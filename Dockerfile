@@ -19,7 +19,14 @@ COPY manifest.json /usr/share/nginx/html/
 COPY interface_config.js /usr/share/nginx/html/
 COPY config.js /usr/share/nginx/html/
 
-# Copy compiled assets (must be built locally first with: make compile && make deploy)
+# Copy compiled assets (must be built locally first with: make compile# Copy platform detection script
+COPY _unlock /usr/share/nginx/html/_unlock
+
+# Copy missing files que causan 404 errors
+COPY pwa-worker.js /usr/share/nginx/html/pwa-worker.js
+COPY node_modules/lib-jitsi-meet/dist/umd/lib-jitsi-meet.e2ee-worker.js /usr/share/nginx/html/libs/lib-jitsi-meet.e2ee-worker.js
+
+# Copy all other files
 COPY libs/ /usr/share/nginx/html/libs/
 COPY css/ /usr/share/nginx/html/css/
 COPY images/ /usr/share/nginx/html/images/

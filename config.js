@@ -56,7 +56,8 @@ var config = {
     // Websocket URL (XMPP)
     websocket: 'wss://' + window.location.hostname + '/xmpp-websocket',
 
-    // websocketKeepAliveUrl: 'https://jitsi-meet.example.com/' + subdir + '_unlock',
+    // WebSocket keep-alive to prevent disconnections
+    websocketKeepAliveUrl: 'https://' + window.location.hostname + '/_unlock',
 
     // Whether BOSH should be preferred over WebSocket if both are configured.
     // preferBosh: false,
@@ -532,8 +533,9 @@ var config = {
 
     // Misc
 
-    // Default value for the channel "last N" attribute. -1 for unlimited.
-    channelLastN: -1,
+    // Default value for the channel "last N" attribute. 
+    // Limitar a 20 para mejorar estabilidad
+    channelLastN: 20,
 
     // Connection indicators
     // connectionIndicators: {
@@ -658,20 +660,23 @@ var config = {
     // },
 
     // Disables or enables RTX (RFC 4588) (defaults to false).
-    // disableRtx: false,
+    // Habilitar para retransmisión de paquetes perdidos
+    disableRtx: false,
 
     // Moves all Jitsi Meet 'beforeunload' logic (cleanup, leaving, disconnecting, etc) to the 'unload' event.
     // disableBeforeUnloadHandlers: true,
 
     // Disables or enables TCC support in this client (default: enabled).
-    // enableTcc: true,
+    // Habilitar para control de congestión
+    enableTcc: true,
 
     // Disables or enables REMB support in this client (default: enabled).
-    // enableRemb: true,
+    // Habilitar para estimación de ancho de banda
+    enableRemb: true,
 
     // Enables forced reload of the client when the call is migrated as a result of
     // the bridge going down.
-    // enableForcedReload: true,
+    enableForcedReload: true,
 
     // Use TURN/UDP servers for the jitsi-videobridge connection (by default
     // we filter out TURN/UDP because it is usually not needed since the
