@@ -6,10 +6,8 @@ services:
             dockerfile: Dockerfile
         container_name: devseniorcode-meet-web
         restart: always
-        env_file: jitsi.env
-        ports:
-            # - "80:80"  <-- ELIMINADO: Traefik maneja esto
-            # - "443:443" <-- ELIMINADO: Traefik maneja esto
+        env_file: .env
+
         volumes:
             - ${CONFIG}/web/letsencrypt:/etc/letsencrypt
             - ${CONFIG}/transcripts:/usr/share/jitsi-meet/transcripts
@@ -26,7 +24,7 @@ services:
     prosody:
         image: jitsi/prosody:stable
         restart: always
-        env_file: jitsi.env
+        env_file: .env
         volumes:
             - ${CONFIG}/prosody/config:/config
             - ${CONFIG}/prosody/prosody-plugins-custom:/prosody-plugins-custom
@@ -39,7 +37,7 @@ services:
     jicofo:
         image: jitsi/jicofo:stable
         restart: always
-        env_file: jitsi.env
+        env_file: .env
         volumes:
             - ${CONFIG}/jicofo:/config
         depends_on:
@@ -51,7 +49,7 @@ services:
     jvb:
         image: jitsi/jvb:stable
         restart: always
-        env_file: jitsi.env
+        env_file: .env
         volumes:
             - ${CONFIG}/jvb:/config
         ports:
