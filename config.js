@@ -61,14 +61,9 @@ var config = {
     // Whether BOSH should be preferred over WebSocket if both are configured.
     // preferBosh: false,
 
-    // ICE RESTART DISABLE - Fix for multi-participant call dropping
-    // Prevents restartRequested=true from causing infinite reconnection loops
-    // When ICE fails, do NOT automatically restart the entire XMPP session
-    enableRestartOnIceRestart: false,
-
-    // Add significant delay before any restart attempt (in milliseconds)
-    // This prevents rapid reconnection loops when there are connection issues
-    restartDelay: 10000,
+    // CONNECTION STABILITY - Fix for multi-participant call dropping
+    // Use WebSocket only for better stability (BOSH can cause issues)
+    preferBosh: false,
 
     // The real JID of focus participant - can be overridden here
     // Do not change username - FIXME: Make focus username configurable
@@ -136,6 +131,20 @@ var config = {
         // If false (default), Spot instances will not show the recording consent dialog.
         // If true, Spot instances will show the recording consent dialog like regular clients.
         // showSpotConsentDialog: false,
+
+        // CONNECTION STABILITY - Fix for multi-participant call dropping
+        // Disable automatic video suspension which can trigger ICE restarts
+        disableSuspendVideo: true,
+
+        // Increase processing interval for more stable connection handling
+        processingInterval: 500,
+
+        // Enable more stable bandwidth estimation
+        enableRemb: true,
+        enableTransportWideCc: false,
+
+        // Disable auto-rejoin on connection failures to prevent infinite loops
+        autoReJoin: false,
     },
 
     // Disable E2EE to prevent 404 errors (lib-jitsi-meet.e2ee-worker.js not available)
