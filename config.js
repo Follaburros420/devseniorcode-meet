@@ -129,6 +129,16 @@ var config = {
         // showSpotConsentDialog: false,
     },
 
+    // Disable E2EE to prevent 404 errors (lib-jitsi-meet.e2ee-worker.js not available)
+    e2ee: {
+        enabled: false,
+    },
+
+    // Disable whiteboard to prevent 404 errors (excalidraw-assets not available)
+    whiteboard: {
+        enabled: false,
+    },
+
     // Disables moderator indicators.
     // disableModeratorIndicator: false,
 

@@ -26,6 +26,7 @@ COPY images/ /usr/share/nginx/html/images/
 COPY sounds/ /usr/share/nginx/html/sounds/
 COPY static/ /usr/share/nginx/html/static/
 COPY lang/ /usr/share/nginx/html/lang/
+COPY pwa-worker.js /usr/share/nginx/html/
 
 # Copy custom nginx config
 COPY nginx-devsenior.conf /etc/nginx/templates/default.conf.template
@@ -36,8 +37,8 @@ RUN chown -R nginx:nginx /usr/share/nginx/html
 # Expose port
 EXPOSE 80
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+# Health check (optimized interval to reduce overhead)
+HEALTHCHECK --interval=60s --timeout=5s --start-period=10s --retries=3 \
     CMD wget --quiet --tries=1 --spider http://127.0.0.1/ || exit 1
 
 # Start nginx
