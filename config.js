@@ -1128,7 +1128,8 @@ var config = {
         // through the JVB and use the peer to peer connection instead. When a
         // 3rd participant joins the conference will be moved back to the JVB
         // connection.
-        enabled: true,
+        // DISABLED: Prevents multi-participant call dropping caused by P2P->JVB transition issues
+        enabled: false,
 
         // Sets the ICE transport policy for the p2p connection. At the time
         // of this writing the list of possible values are 'all' and 'relay',
