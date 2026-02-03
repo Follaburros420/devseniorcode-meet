@@ -53,11 +53,11 @@ var config = {
     // BOSH URL. FIXME: use XEP-0156 to discover it.
     bosh: '/http-bind',
 
-    // Websocket URL (XMPP)
-    websocket: 'wss://' + window.location.hostname + '/xmpp-websocket',
+    // Websocket URL (XMPP) - usa protocolo dinámico para HTTP/HTTPS
+    websocket: (window.location.protocol === 'https:' ? 'wss://' : 'ws://') + window.location.hostname + '/xmpp-websocket',
 
-    // WebSocket keep-alive to prevent disconnections
-    websocketKeepAliveUrl: 'https://' + window.location.hostname + '/_unlock',
+    // WebSocket keep-alive (comentado - requiere endpoint _unlock configurado)
+    // websocketKeepAliveUrl: window.location.protocol + '//' + window.location.hostname + '/_unlock',
 
     // Whether BOSH should be preferred over WebSocket if both are configured.
     // preferBosh: false,
