@@ -11,6 +11,10 @@ RUN apk add --no-cache gettext
 COPY index.html /usr/share/nginx/html/
 COPY title.html /usr/share/nginx/html/
 COPY head.html /usr/share/nginx/html/
+COPY base.html /usr/share/nginx/html/
+COPY fonts.html /usr/share/nginx/html/
+COPY body.html /usr/share/nginx/html/
+COPY plugin.head.html /usr/share/nginx/html/
 COPY manifest.json /usr/share/nginx/html/
 COPY interface_config.js /usr/share/nginx/html/
 COPY config.js /usr/share/nginx/html/
