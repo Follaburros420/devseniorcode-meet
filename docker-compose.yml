@@ -8,8 +8,8 @@ services:
         restart: always
         env_file: jitsi.env
         ports:
-            - "80:80"
-            - "443:443"
+            # - "80:80"  <-- ELIMINADO: Traefik maneja esto
+            # - "443:443" <-- ELIMINADO: Traefik maneja esto
         volumes:
             - ${CONFIG}/web/letsencrypt:/etc/letsencrypt
             - ${CONFIG}/transcripts:/usr/share/jitsi-meet/transcripts
@@ -47,7 +47,7 @@ services:
         networks:
             meet.jitsi:
 
-    # Video Bridge
+                # Video Bridge
     jvb:
         image: jitsi/jvb:stable
         restart: always
@@ -61,6 +61,7 @@ services:
             - prosody
         networks:
             meet.jitsi:
+
 
 networks:
     meet.jitsi:
