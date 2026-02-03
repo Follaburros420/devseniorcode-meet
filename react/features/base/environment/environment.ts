@@ -3,6 +3,11 @@ import Platform from '../react/Platform';
 
 import { isMobileBrowser } from './utils';
 
+declare let config: {
+    [key: string]: any;
+    skipWebRtcCheck?: boolean;
+};
+
 const { browser } = JitsiMeetJS.util;
 
 const DEFAULT_OPTIMAL_BROWSERS = [
@@ -88,6 +93,11 @@ export function isSupportedBrowser() {
         interfaceConfig.UNSUPPORTED_BROWSERS || DEFAULT_UNSUPPORTED_BROWSERS
     )) {
         return false;
+    }
+
+    // Skip WebRTC check if configured (useful for reverse proxy deployments)
+    if (config?.skipWebRtcCheck) {
+        return true;
     }
 
     return isMobileBrowser() ? isSupportedMobileBrowser() : JitsiMeetJS.isWebRtcSupported();

@@ -28,6 +28,12 @@ var config = {
     // Connection
     //
 
+    // Skip WebRTC browser support check.
+    // Enable this when deploying behind reverse proxies (Traefik, Nginx, etc.)
+    // where WebRTC detection may fail even though WebRTC is actually supported.
+    // USE WITH CAUTION: Only enable this if you're sure WebRTC works in your environment.
+    skipWebRtcCheck: true,
+
     hosts: {
         // XMPP domain.
         domain: 'jitsi-meet.example.com',
