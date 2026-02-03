@@ -13,6 +13,9 @@ build/
 react/
 modules/
 *.js
+!config.js
+!interface_config.js
+!app.js
 *.ts
 *.tsx
 *.scss
