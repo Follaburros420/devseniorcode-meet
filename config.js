@@ -45,6 +45,11 @@ var config = {
         muc: 'conference.meet.jitsi',
     },
 
+    // Disable deep linking to allow mobile browsers to access the meeting directly
+    deeplinking: {
+        disabled: true
+    },
+
     // BOSH URL. FIXME: use XEP-0156 to discover it.
     bosh: '/http-bind',
 
