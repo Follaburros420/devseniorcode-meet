@@ -16,6 +16,7 @@ modules/
 !config.js
 !interface_config.js
 !app.js
+!pwa-worker.js
 *.ts
 *.tsx
 *.scss
